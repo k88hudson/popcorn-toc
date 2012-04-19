@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Popcorn Capture</title>
+    <script src="js/popcorn.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/plugins/popcorn-base.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/plugins/popcorn.capture.js" type="text/javascript" charset="utf-8"></script>
+    
+
+    <style>
+
+      body {
+        background: #000;
+      }
+
+      h1, h2, h3, h4 {
+        font-family: Georgia;
+        font-weight: normal;
+        color: #FFF;
+        margin-bottom: .3em;
+      }
+
+      #video-container {
+        margin: 50px auto;
+        width: 1000px;
+        //background: #FFF;
+        position: relative;
+        overflow: hidden;
+      }
+
+      #video {
+        float: left;
+        display: none;
+      }
+
+      .gist {
+        float: right;
+        font-family: Monaco;
+        font-size: 10px;
+      }
+
+      #target {
+        width: 270px;
+        height: 450px;
+        float: left;
+        background: #444;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        text-align: center;
+      }
+
+      .timestamp-link {
+        position: relative;
+        display: inline-block;
+        background: #000;
+        margin-bottom: 10px;
+      }
+
+      .timestamp-link .title {
+        opacity: .5;
+        text-align: left;
+        position: absolute;
+        display: block;
+        width: 100%;
+        background: rgba(0, 0, 0, .9);
+        bottom: 0;
+        left: 0;
+        -webkit-transition: all .2s;
+        -moz-transition: all .2s;
+        transition: all .2s;
+      }
+      .timestamp-link:hover .title {
+        opacity: 1;
+        -webkit-transition: all .2s;
+        -moz-transition: all .2s;
+        transition: all .2s;
+      }
+
+      .timestamp-link .title h4 {
+        padding: 30px 10px 20px 10px;
+        margin: 0;
+      }
+      
+      canvas {
+        opacity: 0;
+        -webkit-transition: all .2s;
+        -moz-transition: all .2s;
+        transition: all .2s;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="video-container">
+      <div id="target"></div>
+      <video id="video" width="730" preload controls="controls" poster="http://mozillapopcorn.org/wp-content/themes/popcorn/images/poster.png" >
+        <source src="http://videos.mozilla.org/serv/webmademovies/popcornsite.mp4" type="video/mp4" />
+        <source src="http://videos.mozilla.org/serv/webmademovies/popcornsite.webm" type="video/webm" />
+        <source src="http://mozillapopcorn.org/wp-content/themes/popcorn/video/popcornsite.ogv" type="video/ogg" />
+      </video>
+      <div id="editor">
+        
+      </div>
+    </div>
+    
+    <script type="text/javascript">
+    (function(){
+
+      var popcorn = Popcorn('#video');
+      var toc = popcorn.toc({
+        start: 0,
+        end: 1000,
+        text: "Table of Poptents",
+        toc: [
+          {
+            timestamp: 0,
+            frameTime: 1,
+            title: "Intro to popcorn",
+          },
+          {
+            timestamp: 13,
+            title: "What can you use it for?",
+          }, 
+          {
+            timestamp: 32,
+            frameTime: 38,
+            title: "The technology",
+          },
+          {
+            timestamp: 59,
+            frameTime: 61,
+            title: "Popcorn Maker",
+          },
+          {
+            timestamp: 68,
+            frameTime: 72,
+            title: "Are you a film-maker?",
+          }, 
+        ],
+        size: 40,
+        target: "target"
+      });
+      
+    }());
+    </script>
+  </body>
+</html>
